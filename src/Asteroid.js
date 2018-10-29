@@ -16,6 +16,10 @@ class Asteroid extends Component {
     return x.toFixed(3);
   }
 
+  formatVelocity(x){
+    return x.substring(0,5);
+  }
+
   formatDate(){
     var monthNames = [
       "Jan", "Feb", "March",
@@ -32,9 +36,11 @@ class Asteroid extends Component {
   formatHazardous(){
     let hazardous = '';
     if(this.props.hazardous){
-      hazardous = 'Potentially Hazardous';
-    } else {
+      hazardous = 'Hazardous';
+    } else if(!this.props.hazardous){
       hazardous = 'No Threat';
+    } else {
+      hazardous = '';
     }
     return hazardous;
   }
@@ -42,11 +48,12 @@ class Asteroid extends Component {
   render() {
     return (
       <div className={this.props.hazardous ? "hazardousAsteroid" : "Asteroid"}>
-        <p className="asteroidName">{this.formatName()}</p>
+        {/* <p className="asteroidName">{this.formatName()}</p> */}
         <p className={this.props.hazardous ? "hazardous" : ""}>{this.formatHazardous()}</p>
-        <p>Fly by on {this.formatDate()}</p>
-        <p>Miss distance of {this.formatDistance(this.props.missDistance)} KM</p>
-        <p>Max Diameter of {this.formatDiameter(this.props.maxDiameter)} KM</p>
+        <p>{this.formatDiameter(this.props.maxDiameter)}km wide</p>
+        <p>Miss by {this.formatDistance(this.props.missDistance)}km</p>
+        <p>Travelling {this.formatVelocity(this.props.velocity)}km per second</p>
+        <p>{this.formatDate()}</p>
         <p>Orbiting {this.props.orbiting}</p>
       </div>
     );

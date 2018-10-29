@@ -32,6 +32,7 @@ class App extends Component {
             missDistance={a.close_approach_data[0].miss_distance.kilometers}
             maxDiameter={a.estimated_diameter.kilometers.estimated_diameter_max}
             orbiting={a.close_approach_data[0].orbiting_body}
+            velocity={a.close_approach_data[0].relative_velocity.kilometers_per_second}
           />
         )}
       </ul>
@@ -54,9 +55,9 @@ class App extends Component {
           <p className="source">Updated daily from <a href="https://ssd.jpl.nasa.gov/sbdb.cgi">NASA</a></p>
           <hr className="my-2" />
         </Jumbotron>
+        <p> Avg distance to sun: 149,600,000 km </p>
+        <p> Avg Distance to moon: 384,400 km</p>
         <div className="List">
-         <p> Avg distance to sun: 149,600,000 km </p>
-          <p> Avg Distance to moon: 384,400 km</p>
           {this.displayAsteroids(this.state.asteroids)} 
         </div>
       </div>

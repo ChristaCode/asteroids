@@ -3,12 +3,13 @@
   background-color: #7a6e7f;
   color: #e3dae8;
   font-size: calc(10px + 2vmin);
-  padding: 3px;
-  margin-bottom: 20px;
-  border-radius: 15px;
+  padding : 5px 5px 5px 5px;
+  margin: 20px;
+  border-radius: 50%;
   border-color: #390d51;
   border-width: thick;
   border-style: solid;
+  display: inline-block;
 }
 
 .hazardousAsteroid {
@@ -16,12 +17,13 @@
   background-color: #7a6e7f;
   color: #e3dae8;
   font-size: calc(10px + 2vmin);
-  padding: 3px;
-  margin-bottom: 20px;
-  border-radius: 15px;
+  padding : 5px 5px 5px 5px;
+  margin: 20px;
+  border-radius: 50%;
   border-color: #661125;
   border-width: thick;
   border-style: solid;
+  display: inline-block;
 }
 
 .asteroidName{
