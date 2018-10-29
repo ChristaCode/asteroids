@@ -57,8 +57,10 @@ class App extends Component {
         </Jumbotron>
         <p> Avg distance to sun: 149,600,000 km </p>
         <p> Avg Distance to moon: 384,400 km</p>
-        <div className="List">
+        <div class='sky'>
+        <div class='stars'>
           {this.displayAsteroids(this.state.asteroids)} 
+        </div>
         </div>
       </div>
     );

@@ -1,12 +1,13 @@
 .Asteroid {
   text-align: center;
-  background-color: #7a6e7f;
+  background-color: #403655;
   color: #e3dae8;
   font-size: calc(10px + 2vmin);
-  padding : 5px 5px 5px 5px;
+  padding : 10px 10px 10px 10px;
   margin: 20px;
+  margin-top:40px;
   border-radius: 50%;
-  border-color: #390d51;
+  border-color: #0d0530;
   border-width: thick;
   border-style: solid;
   display: inline-block;
@@ -14,13 +15,13 @@
 
 .hazardousAsteroid {
   text-align: center;
-  background-color: #7a6e7f;
+  background-color: #5a202f;
   color: #e3dae8;
   font-size: calc(10px + 2vmin);
-  padding : 5px 5px 5px 5px;
+  padding : 10px 10px 10px 10px;
   margin: 20px;
   border-radius: 50%;
-  border-color: #661125;
+  border-color: #310711;
   border-width: thick;
   border-style: solid;
   display: inline-block;
@@ -32,5 +33,5 @@
 }
 
 .hazardous{
-  color: darkred;
+  color: rgb(179, 0, 39);
 }
