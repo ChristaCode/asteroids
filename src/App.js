@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import { getAsteroids } from './Routes.js';
+import Asteroid from './Asteroid';
 import './App.css';
 
 class App extends Component {
@@ -18,33 +19,28 @@ componentDidMount(){
   promise.then((asteroids) =>  this.setState({asteroids}));
 }
 
-displayAsteroids() {
-  const numbers = props.numbers;
-  const listItems = numbers.map((number) =>
-    <ListItem key={number.toString()}
-              value={number} />
-
-  );
+displayAsteroids(asteroids) {
   return (
     <ul>
-      {listItems}
+      {asteroids.map((a) =>
+        <Asteroid key={a.id}
+              name={a.name}
+              hazardous={a.is_potentially_hazardous_asteroid}
+              approachDate={a.close_approach_data[0].close_approach_date}
+              missDistance={a.close_approach_data[0].miss_distance.kilometers}
+              />
+      )}
     </ul>
   );
-
-
-
-  console.log(asteroids);
-  for(var i = 0; i < asteroids.length; i++){
-    console.log('name: ' + asteroids[i].name);
-    console.log('potentially hazardous: ' + asteroids[i].is_potentially_hazardous_asteroid);
-    console.log('close approach date: ' + asteroids[i].close_approach_data[0].close_approach_date);
-    console.log('miss distance: ' + asteroids[i].close_approach_data[0].miss_distance.kilometers + 'km');
-  }
 }
 
   render() {
-    if(this.state.asteroids){
-      displayAsteroids();
+    if(!this.state.asteroids){
+      return(
+        <div className="App">
+          <p>Loading</p>
+        </div>
+      );
     }
     return (
       <div className="App">
@@ -62,6 +58,11 @@ displayAsteroids() {
             Learn React
           </a>
         </header>
+        <div>
+        <ul>
+          {this.displayAsteroids(this.state.asteroids)}
+        </ul>
+        </div>
       </div>
     );
   }
