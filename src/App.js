@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import { getAsteroids } from './Routes.js';
 import './App.css';
 
 class App extends Component {
+
+componentDidMount(){
+  var d = new Date();
+  var month = d.getMonth()+1;
+  getAsteroids(d.getFullYear()+'-'+month+'-'+d.getDate());
+}
+
   render() {
     return (
       <div className="App">
