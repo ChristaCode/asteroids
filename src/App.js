@@ -40,6 +40,7 @@ class App extends Component {
   }
 
   render() {
+    let harzardousDesc = '*A potentially hazardous object (PHO) is a near-Earth object – either an asteroid or a comet – with an orbit that can make exceptionally close approaches to the Earth and large enough to cause significant regional damage in the event of impact.';
     if (!this.state.asteroids) {
       return (
         <div className="App">
@@ -58,10 +59,11 @@ class App extends Component {
         <p> Avg distance to sun: 149,600,000 km </p>
         <p> Avg Distance to moon: 384,400 km</p>
         <div class='sky'>
-        <div class='stars'>
-          {this.displayAsteroids(this.state.asteroids)} 
+          <div class='stars'>
+            {this.displayAsteroids(this.state.asteroids)} 
+          </div>
         </div>
-        </div>
+        <div className="notes">{harzardousDesc}</div>
       </div>
     );
   }

@@ -4,8 +4,9 @@
   color: #e3dae8;
   font-size: calc(10px + 2vmin);
   padding : 10px 10px 10px 10px;
-  margin: 20px;
-  margin-top:40px;
+  width: 300px;
+  margin-right: 10px;
+  margin-left: 10px;
   border-radius: 50%;
   border-color: #0d0530;
   border-width: thick;
@@ -18,13 +19,22 @@
   background-color: #5a202f;
   color: #e3dae8;
   font-size: calc(10px + 2vmin);
-  padding : 10px 10px 10px 10px;
-  margin: 20px;
+  padding : 10px 10px 10px 10px; 
+  width: 300px;
+  margin-right: 10px;
+  margin-left: 10px;
   border-radius: 50%;
   border-color: #310711;
   border-width: thick;
   border-style: solid;
   display: inline-block;
+}
+
+.asteroidWrapper{
+  color: #e3dae8;
+  padding : 10px 10px 10px 10px;
+  display: inline-block;
+  text-align: center;
 }
 
 .asteroidName{

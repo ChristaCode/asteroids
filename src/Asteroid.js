@@ -47,14 +47,16 @@ class Asteroid extends Component {
 
   render() {
     return (
-      <div className={this.props.hazardous ? "hazardousAsteroid" : "Asteroid"}>
-        {/* <p className="asteroidName">{this.formatName()}</p> */}
-        <p className={this.props.hazardous ? "hazardous" : ""}>{this.formatHazardous()}</p>
-        <p>{this.formatDiameter(this.props.maxDiameter)}km wide</p>
-        <p>Miss by {this.formatDistance(this.props.missDistance)}km</p>
-        <p>Travelling {this.formatVelocity(this.props.velocity)}km per second</p>
-        <p>{this.formatDate()}</p>
-        <p>Orbiting {this.props.orbiting}</p>
+      <div className="asteroidWrapper">
+        <p className="asteroidName">{this.formatName()}</p>
+        <div className={this.props.hazardous ? "hazardousAsteroid" : "Asteroid"}>
+          <p className={this.props.hazardous ? "hazardous" : ""}>{this.formatHazardous()}</p>
+          <p>{this.formatDiameter(this.props.maxDiameter)}km wide</p>
+          <p>Miss by {this.formatDistance(this.props.missDistance)}km</p>
+          <p>Travelling {this.formatVelocity(this.props.velocity)}km per second</p>
+          <p>Pass by {this.formatDate()}</p>
+          <p>Orbiting {this.props.orbiting}</p>
+        </div>
       </div>
     );
   }
