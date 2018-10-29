@@ -51,7 +51,7 @@ class App extends Component {
         <Jumbotron className="header">
           <h1 className="display-3">Near Earth Encounters</h1>
           <p className="lead">Space objects and asteroids approaching Earth</p>
-          <p className="source">Source <a href="https://ssd.jpl.nasa.gov/sbdb.cgi">NASA</a></p>
+          <p className="source">Updated daily from <a href="https://ssd.jpl.nasa.gov/sbdb.cgi">NASA</a></p>
           <hr className="my-2" />
         </Jumbotron>
         <div className="List">
