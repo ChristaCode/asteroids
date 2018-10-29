@@ -1,10 +1,12 @@
 .Asteroid {
-  text-align: center;
-  background-color: white;
-  color: black;
+  text-align: left;
+  background-color: #A193B7;
+  color: #160333;
   font-size: calc(10px + 2vmin);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+  justify-content: left;
+  margin-bottom: 20px;
+  border-radius: 15px;
 }

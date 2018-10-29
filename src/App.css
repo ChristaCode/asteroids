@@ -1,8 +1,8 @@
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: #160333;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #A193B7;
   display: flex;
   flex-direction: column;
   align-items: center;
