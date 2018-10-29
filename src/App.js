@@ -45,14 +45,16 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <Jumbotron>
+        <Jumbotron className="header">
           <h1 className="display-3">Near Earth Encounters</h1>
           <p className="lead">Space objects and asteroids approaching Earth</p>
           <hr className="my-2" />
         </Jumbotron>
-        <Container>
-            {this.displayAsteroids(this.state.asteroids)}
-        </Container>
+        <div className="List">
+          <Container>
+                {this.displayAsteroids(this.state.asteroids)} 
+          </Container>
+        </div>
       </div>
     );
   }

@@ -3,37 +3,32 @@ import { Table, Row, Col, ListGroup, ListGroupItem } from 'reactstrap';
 import './Asteroid.css';
 
 class Asteroid extends Component {
-  render() {
+  formatName(){
+    let name = this.props.name;
+    return name.replace(/([\(\)])+/g, '');
+  }
+
+  formatMeasurement(x){
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+  formatHazardous(){
     let hazardous = '';
     if(this.props.hazardous){
-      hazardous = 'Yes';
+      hazardous = 'Hazardous';
     } else {
-      hazardous = 'No';
+      hazardous = 'No Danger';
     }
-  
-    return (
+    return hazardous;
+  }
 
+  render() {
+    return (
       <div className="Asteroid">
-        <Table responsive>
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <td>{this.props.name} </td>
-            </tr>
-            <tr>
-              <th>Hazardous</th>
-              <td>{hazardous} </td>
-            </tr>
-            <tr>
-              <th>Approach Date</th>
-              <td>{this.props.approachDate} </td>
-            </tr>
-            <tr>
-              <th>Miss By (km)</th>
-              <td>{this.props.missDistance} </td>
-            </tr>
-          </tbody>
-        </Table>
+        <p className="asteroidName">{this.formatName()}</p>
+        <p>{this.formatHazardous()}</p>
+        <p>Approaching {this.props.approachDate}</p>
+        <p>Missing Earth by {this.formatMeasurement(this.props.missDistance)} KM</p>
       </div>
     );
   }
