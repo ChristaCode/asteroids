@@ -21,6 +21,7 @@ class App extends Component {
   }
 
   displayAsteroids(asteroids) {
+    console.log(this.state.asteroids);
     return (
       <ul>
         {asteroids.map((a) =>
@@ -29,6 +30,8 @@ class App extends Component {
             hazardous={a.is_potentially_hazardous_asteroid}
             approachDate={a.close_approach_data[0].close_approach_date}
             missDistance={a.close_approach_data[0].miss_distance.kilometers}
+            maxDiameter={a.estimated_diameter.kilometers.estimated_diameter_max}
+            orbiting={a.close_approach_data[0].orbiting_body}
           />
         )}
       </ul>
@@ -48,12 +51,13 @@ class App extends Component {
         <Jumbotron className="header">
           <h1 className="display-3">Near Earth Encounters</h1>
           <p className="lead">Space objects and asteroids approaching Earth</p>
+          <p className="source">Source <a href="https://ssd.jpl.nasa.gov/sbdb.cgi">NASA</a></p>
           <hr className="my-2" />
         </Jumbotron>
         <div className="List">
-          <Container>
-                {this.displayAsteroids(this.state.asteroids)} 
-          </Container>
+         <p> Avg distance to sun: 149,600,000 km </p>
+          <p> Avg Distance to moon: 384,400 km</p>
+          {this.displayAsteroids(this.state.asteroids)} 
         </div>
       </div>
     );

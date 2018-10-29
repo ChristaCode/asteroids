@@ -13,6 +13,9 @@
   color: white;
 }
 
+.source{
+  font-size: calc(4px + 2vmin);
+}
 
 .List {
   margin: auto;
