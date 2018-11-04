@@ -41,32 +41,37 @@ class App extends Component {
 
   render() {
     let harzardousDesc = '*A potentially hazardous object (PHO) is a near-Earth object – either an asteroid or a comet – with an orbit that can make exceptionally close approaches to the Earth and large enough to cause significant regional damage in the event of impact.';
-    if (!this.state.asteroids) {
-      return (
-        <div className="App">
-          <p>Loading</p>
-        </div>
-      );
+    let display = 'Error';
+
+    
+    if ( !this.state.asteroids ) { // if asteroids array is empty
+      display = <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>;
+      
+    } else if (this.state.asteroids[0] === "Error") { // if error is returned from api call
+      display = this.state.asteroids[1];
+    } else {
+      display = this.displayAsteroids(this.state.asteroids); // if asteroids array is populated and no error returned
     }
+
     return (
       <div className="App">
-        <Jumbotron className="header">
-          <h1 className="display-3">Near Earth Encounters</h1>
-          <p className="lead">Space objects and asteroids approaching Earth</p>
-          <p className="source">Updated daily from <a href="https://ssd.jpl.nasa.gov/sbdb.cgi">NASA</a></p>
-          <hr className="my-2" />
-        </Jumbotron>
-        <p> Avg distance to sun: 149,600,000 km </p>
-        <p> Avg Distance to moon: 384,400 km</p>
-        <div class='sky'>
-          <div class='stars'>
-            {this.displayAsteroids(this.state.asteroids)} 
-          </div>
+      <Jumbotron className="header">
+        <h1 className="display-3">Near Earth Encounters</h1>
+        <p className="lead">Space objects and asteroids approaching Earth</p>
+        <p className="source">Updated daily from <a href="https://ssd.jpl.nasa.gov/sbdb.cgi">NASA</a></p>
+        <hr className="my-2" />
+      </Jumbotron>
+      <p> Avg distance to sun: 149,600,000 km </p>
+      <p> Avg Distance to moon: 384,400 km</p>
+      <div class='sky'>
+        <div class='stars'>
+          <p> { display } </p>
         </div>
-        <div className="notes">{harzardousDesc}</div>
       </div>
+      <div className="notes">{harzardousDesc}</div>
+    </div>
     );
-  }
+  }    
 }
 
 export default App;

@@ -12,7 +12,8 @@ async function getAsteroids(end_date){
     });
     return response.data.near_earth_objects[end_date];
   } catch(e) {
-    console.log(e);
+    let errArr = ['Error', e.toString()];
+    return errArr;
   };
 }
 
