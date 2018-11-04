@@ -10,6 +10,8 @@ async function getAsteroids(end_date){
             api_key: 's9FVEKPZlN7AeoOhFp96xhkBdqwVZWchnT5oF2NN'
         }
     });
+    console.log(end_date);
+    console.log(response.data);
     return response.data.near_earth_objects[end_date];
   } catch(e) {
     let errArr = ['Error', e.toString()];

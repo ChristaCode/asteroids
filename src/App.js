@@ -9,15 +9,19 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      asteroids: null
+      asteroids: null,
+      loading: true
     };
   }
 
   componentDidMount() {
     var d = new Date();
-    var month = d.getMonth() + 1;
-    var promise = getAsteroids(d.getFullYear() + '-' + month + '-' + d.getDate());
-    promise.then((asteroids) => this.setState({ asteroids }));
+    var month = ("0" + (d.getMonth() + 1)).slice(-2);
+    var date = ("0" + (d.getDate() + 1)).slice(-2);
+    var promise = getAsteroids(d.getFullYear() + '-' + month + '-' + date);
+    promise.then((asteroids) => 
+      this.setState({ asteroids }));
+      this.setState({loading: false});
   }
 
   displayAsteroids(asteroids) {
@@ -43,10 +47,10 @@ class App extends Component {
     let harzardousDesc = '*A potentially hazardous object (PHO) is a near-Earth object – either an asteroid or a comet – with an orbit that can make exceptionally close approaches to the Earth and large enough to cause significant regional damage in the event of impact.';
     let display = 'Error';
 
-    
-    if ( !this.state.asteroids ) { // if asteroids array is empty
+    if ( this.state.loading ) { // if asteroids array is empty
       display = <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>;
-      
+    } else if ( !this.state.asteroids ) { // if asteroids array is empty
+      display = 'Error fetching near earth objects';
     } else if (this.state.asteroids[0] === "Error") { // if error is returned from api call
       display = this.state.asteroids[1];
     } else {
