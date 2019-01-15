@@ -21,17 +21,25 @@ class Asteroid extends Component {
   }
 
   formatDate(){
-    var monthNames = [
-      "Jan", "Feb", "March",
-      "April", "May", "June", "July",
-      "Aug", "Sep", "Oct",
-      "Nov", "Dec"
-    ];
-  
+    var monthNames = new Map();
+    
+    monthNames.set('01', 'Jan');
+    monthNames.set('02', 'Feb');
+    monthNames.set('03', 'March');
+    monthNames.set('04', 'April');
+    monthNames.set('05', 'May');
+    monthNames.set('06', 'June');
+    monthNames.set('07', 'July');
+    monthNames.set('08', 'Aug');
+    monthNames.set('09', 'Sep');
+    monthNames.set('10', 'Oct');
+    monthNames.set('11', 'Nov');
+    monthNames.set('12', 'Dec');
+
     let date = this.props.approachDate;
     date = date.split('-');
-
-    return monthNames[date[1]] + ' ' + date[2] + ', ' + date[0];
+    console.log(date);
+    return monthNames.get(date[1]) + ' ' + date[2] + ', ' + date[0];
   }
 
   formatHazardous(){
