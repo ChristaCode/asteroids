@@ -9,7 +9,8 @@ class Asteroid extends Component {
   }
 
   formatDistance(x){
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    x = parseFloat(x);
+    return x.toFixed(2);
   }
 
   formatDiameter(x){
