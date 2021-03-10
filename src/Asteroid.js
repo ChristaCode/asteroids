@@ -39,7 +39,6 @@ class Asteroid extends Component {
 
     let date = this.props.approachDate;
     date = date.split('-');
-    console.log(date);
     return monthNames.get(date[1]) + ' ' + date[2] + ', ' + date[0];
   }
 
