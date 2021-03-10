@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Table, Row, Col, ListGroup, ListGroupItem } from 'reactstrap';
 import './Asteroid.css';
 
 class Asteroid extends Component {
